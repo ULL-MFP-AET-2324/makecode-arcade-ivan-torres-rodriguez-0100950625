@@ -1,5 +1,14 @@
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function (sprite, otherSprite) {
+    hambur.x = randint(0, scene.screenWidth() - 8)
+    hambur.y = randint(0, scene.screenHeight())
+    info.startCountdown(5)
+    info.changeScoreBy(1)
+    pato.changeScale(0.1, ScaleAnchor.Middle)
+})
+let hambur: Sprite = null
+let pato: Sprite = null
 scene.setBackgroundColor(10)
-let pato = sprites.create(img`
+pato = sprites.create(img`
     . . . . . . . . . . b 5 b . . . 
     . . . . . . . . . b 5 b . . . . 
     . . . . . . b b b b b b . . . . 
@@ -18,7 +27,7 @@ let pato = sprites.create(img`
     . . . . . . . . . . . . . . . . 
     `, SpriteKind.Player)
 controller.moveSprite(pato)
-let hambur = sprites.create(img`
+hambur = sprites.create(img`
     ...........ccccc66666...........
     ........ccc4444444444666........
     ......cc444444444bb4444466......
